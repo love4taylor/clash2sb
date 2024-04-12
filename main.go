@@ -21,10 +21,10 @@ import (
 	"github.com/xmdhs/clash2sfa/service"
 )
 
-//go:embed config.json.template
+//go:embed sing-box_template.json
 var configByte []byte
 
-//go:embed frontend.html
+//go:embed frontend_new.html
 var frontendByte []byte
 
 func main() {
