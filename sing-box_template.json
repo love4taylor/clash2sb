@@ -7,14 +7,12 @@
   "dns": {
     "servers": [
       {
-        "tag": "cooluc",
-        "address": "h3://dns.cooluc.com/dns-query",
-        "address_resolver": "bootstrap",
-        "detour": "direct"
+        "tag": "google",
+        "address": "tls://8.8.8.8"
       },
       {
-        "tag": "bootstrap",
-        "address": "223.5.5.5",
+        "tag": "local",
+        "address": "https://223.5.5.5/dns-query",
         "detour": "direct"
       },
       {
@@ -29,6 +27,48 @@
           ".arpa"
         ],
         "server": "block"
+      },
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "local"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "google"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "rule_set": "geosite-apple@cn"
+          },
+          {
+            "rule_set": "geosite-category-games@cn"
+          },          
+          {
+            "rule_set": "geosite-geolocation-cn"
+          }
+        ],
+        "server": "local"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geoip-cn"
+          }
+        ],
+        "server": "local"
       }
     ]
   },
