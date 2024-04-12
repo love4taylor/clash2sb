@@ -35,18 +35,18 @@
         <main class="container">
             <p>在此页面粘贴由本工具生成的订阅链接（仅参数保存在链接内可用），可解析到下面的选项中</p>
             <input placeholder="订阅链接，多个链接使用 | 分割" v-model="sub" />
-            <div class="grid">
+            <!--<div class="grid">
                 <input placeholder="url test 中包含的节点名（可用正则）" v-model="include" />
                 <input placeholder="url test 中排除的节点名（可用正则）" v-model="exclude" />
-            </div>
+            </div>-->
             <br />
             <details>
                 <summary>配置文件模板</summary>
                 <hr />
-                <span>可通过设置 urltest / selector 的 outbounds，来自定义生成配置文件后其中包含的节点。</span>
+                <span>可通过设置 <!--urltest / -->selector 的 outbounds，来自定义生成配置文件后其中包含的节点。</span>
                 <span>类似：</span>
                 <pre>{
-    "tag": "selector",
+    "tag": "select",
     "type": "selector",
     "outbounds": [
         "include: 新加坡",
@@ -59,10 +59,10 @@
                     <input type="checkbox" role="switch" v-model="checkbox">
                     配置文件模板直链
                 </label>
-                <label>
+                <!--<label>
                     <input type="checkbox" role="switch" v-model="disableUrlTest">
                     禁用默认生成的 urltest 和 selector
-                </label>
+                </label>-->
                 <label for="addTag">
                     <input type="checkbox" id="addTag" role="switch" v-model="addTag">
                     生成的节点中添加订阅地址的域名，用以区分不同订阅的节点
@@ -96,7 +96,7 @@
             const inFetch = Vue.ref(false)
             const inputRef = Vue.ref(null)
             const addTag = Vue.ref(false)
-            const disableUrlTest = Vue.ref(false)
+            const disableUrlTest = Vue.ref(true)
 
             Vue.watch(saveType, v => {
                 if (v) {
