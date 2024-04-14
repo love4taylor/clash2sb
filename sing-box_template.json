@@ -104,7 +104,6 @@
     },
     {
       "type": "mixed",
-      "strategy": "prefer_ipv4",
       "listen": "127.0.0.1",
       "listen_port": 2333
     }
