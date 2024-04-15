@@ -144,6 +144,10 @@
         "outbound": "direct"
       },
       {
+        "domain": "121.103.201.205.sslip.io",
+        "outbound": "direct"
+      },
+      {
         "clash_mode": "Direct",
         "outbound": "direct"
       },
